@@ -9,7 +9,7 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String welcome(Model model){
-		model.addAttribute("greeting", "Witaj w naszym sklepie internetowym");
+		model.addAttribute("greeting", "Welcome to our store!");
 		model.addAttribute("tagline", "Wyjątkowym i elegankim sklepie");
 		return "welcome";
 	}
