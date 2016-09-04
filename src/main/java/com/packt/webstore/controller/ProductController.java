@@ -8,7 +8,12 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.MatrixVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -64,5 +69,27 @@ public class ProductController {
 		all.retainAll(manuf);
 		model.addAttribute("products", all);
 		return "products";
+	}
+	
+	@RequestMapping(value="/add", method = RequestMethod.GET)
+	public String addProductView(Model model){
+		Product newProduct = new Product();
+		model.addAttribute("newProduct", newProduct);
+		return "addProduct";
+	}
+	
+	@RequestMapping(value="/add", method = RequestMethod.POST)
+	public String addNewProductForm(@ModelAttribute("newProduct") Product newProduct, BindingResult result){
+		String[] suppressedFileds = result.getSuppressedFields();
+		if(suppressedFileds.length > 0){
+			throw new RuntimeException("Próba wiązania niedozwolonych pól:" + StringUtils.arrayToCommaDelimitedString(suppressedFileds));
+		}
+		productService.addProduct(newProduct);
+		return "redirect:/products";
+	}
+	
+	@InitBinder
+	public void initialiseBinder(WebDataBinder binder){
+		binder.setDisallowedFields("unitsInOrder", "discontinued");
 	}
 }
