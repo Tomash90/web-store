@@ -10,7 +10,8 @@ public class HomeController {
 	@RequestMapping("/")
 	public String welcome(Model model){
 		model.addAttribute("greeting", "Welcome to our store!");
-		model.addAttribute("tagline", "Special and ");
+		model.addAttribute("tagline", "Special and Smart Store");
+
 		return "welcome";
 	}
 }
