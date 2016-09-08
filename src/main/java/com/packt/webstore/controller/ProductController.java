@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -91,8 +92,11 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/add", method = RequestMethod.POST)
-	public String addNewProductForm(@ModelAttribute("newProduct") Product newProduct, BindingResult result, HttpServletRequest request){
+	public String addNewProductForm(@ModelAttribute("newProduct") @Valid Product newProduct, BindingResult result, HttpServletRequest request){
 		String[] suppressedFileds = result.getSuppressedFields();
+		if(result.hasErrors()){
+			return "addProduct";
+		}
 		if(suppressedFileds.length > 0){
 			throw new RuntimeException("Próba wiązania niedozwolonych pól:" + StringUtils.arrayToCommaDelimitedString(suppressedFileds));
 		}
@@ -109,10 +113,14 @@ public class ProductController {
 		productService.addProduct(newProduct);
 		return "redirect:/products";
 	}
+	@RequestMapping("/invalidPromoCode")
+	public String invalidPromoCode() {
+		return "invalidPromoCode";
+	}
 	
 	@InitBinder
 	public void initialiseBinder(WebDataBinder binder){
-		binder.setAllowedFields("productId","name","unitPrice","description","manufacturer", "category", "unitsInStock","condition","productImage");
+		binder.setAllowedFields("productId","name","unitPrice","description","manufacturer", "category", "unitsInStock","condition","productImage","language");
 	}
 	
 	@ExceptionHandler(ProductNotFoundException.class)
