@@ -13,6 +13,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.packt.webstore.validator.Category;
 import com.packt.webstore.validator.ProductId;
 
 @XmlRootElement
@@ -28,7 +29,10 @@ public class Product {
 	private BigDecimal unitPrice;
 	private String description;
 	private String manufacturer;
+	@NotNull(message="{NotNull.Product.category.validation}")
+	@Category(allowedCategories = {"RTS", "RPG", "FPS"})
 	private String category;
+	@Min(value = 0, message="{Min.Product.unitsInStock.validation}")
 	private long unitsInStock;
 	private long unitsInOrder;
 	private boolean discontinued;
