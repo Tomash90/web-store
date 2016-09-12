@@ -24,6 +24,7 @@ public class CartItem {
 
 	public void setProduct(Product product) {
 		this.product = product;
+		this.updateTotalPrice();
 	}
 
 	public int getQuantity() {
@@ -32,13 +33,14 @@ public class CartItem {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+		this.updateTotalPrice();
 	}
 
 	public BigDecimal getTotalPrice() {
 		return totalPrice;
 	}
 
-	public void updateTotalPrice(BigDecimal totalPrice) {
+	public void updateTotalPrice() {
 		totalPrice = this.product.getUnitPrice().multiply(new BigDecimal(this.quantity));
 	}
 

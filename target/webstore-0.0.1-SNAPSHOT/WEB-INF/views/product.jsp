@@ -39,8 +39,8 @@
 				</p>
 				<h4>${product.unitPrice} PLN</h4>
 				<p>
-					<a href="#" class="btn btn-warning btn-large"><span class="glyphicon-shopping-cart glyphicon"></span> Zamów teraz</a>
-					<a href="<spring:url value="/products" />" class="btn btn-info"><span class="glyphicon glyphicon-hand-left"></span> Wstecz</a>
+					<a href="#" class="btn btn-warning btn-md"><span class="glyphicon-shopping-cart glyphicon"></span> Zamów teraz</a>
+					<a href="<spring:url value="/products" />" class="btn btn-info btn-md"><span class="glyphicon glyphicon-hand-left"></span> Wstecz</a>
 				</p>
 					
 			</div>

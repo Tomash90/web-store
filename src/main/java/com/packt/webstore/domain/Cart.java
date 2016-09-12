@@ -15,6 +15,8 @@ public class Cart {
 	}
 	public Cart(String cartId) {
 		this.cartId = cartId;
+		cartItems = new HashMap<String, CartItem>();
+		grandTotal = new BigDecimal(0);
 	}
 
 	public String getCartId() {
@@ -47,9 +49,11 @@ public class Cart {
 			CartItem existingCartItem = cartItems.get(productId);
 			existingCartItem.setQuantity(existingCartItem.getQuantity() + item.getQuantity());
 			cartItems.put(productId, existingCartItem);
+			updateGrandTotal();
 		}
 		else {
 			cartItems.put(productId, item);
+			updateGrandTotal();
 		}
 	}
 	

@@ -51,7 +51,7 @@ public class CartRestController {
 		cartService.delete(cartId);
 	}
 	
-	@RequestMapping(value="add/{productId}", method=RequestMethod.PUT)
+	@RequestMapping(value="/add/{productId}", method=RequestMethod.PUT)
 	@ResponseStatus(value=HttpStatus.NO_CONTENT)
 	public void addItem(@PathVariable(value="productId") String productId, HttpServletRequest request) {
 		String sessionId = request.getSession(true).getId();
@@ -63,11 +63,12 @@ public class CartRestController {
 		if(product == null) {
 			throw new IllegalArgumentException(new ProductNotFoundException(productId));
 		}
-		cart.addCartItem(new CartItem(product));
+		CartItem cartItem = new CartItem(product);
+		cart.addCartItem(cartItem);
 		cartService.update(sessionId, cart);
 	}
 	
-	@RequestMapping(value="remove/{productId}", method=RequestMethod.PUT)
+	@RequestMapping(value="/remove/{productId}", method=RequestMethod.PUT)
 	@ResponseStatus(value=HttpStatus.NO_CONTENT)
 	public void removeItem(@PathVariable String productId, HttpServletRequest request){
 		String sessionId = request.getSession(true).getId();
@@ -87,7 +88,4 @@ public class CartRestController {
 	@ResponseStatus(value=HttpStatus.BAD_REQUEST, reason="Niepoprawne żądanie, sprawdź przesyłane dane")
 	public void handleClientErrors(Exception ex) {}
 	
-	@ExceptionHandler(Exception.class)
-	@ResponseStatus(value=HttpStatus.INTERNAL_SERVER_ERROR, reason="Wewnętrzny błąd serera")
-	public void handleServerErrors(Exception ex) {}
 }

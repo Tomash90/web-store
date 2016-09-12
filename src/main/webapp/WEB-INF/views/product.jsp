@@ -7,6 +7,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+
 <title>Produkt</title>
 </head>
 <body>
@@ -17,7 +20,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="container">
+	<section class="container" ng-app="cartApp">
 		<div class="row">
 		<div class="col-md-5">
 			<img src="<c:url value="/resource/images/${product.productId}.jpg"></c:url>" alt="image" style="width:60%"/>
@@ -38,13 +41,15 @@
 					<strong>Liczba sztuk w magazynie:</strong> ${product.unitsInStock}
 				</p>
 				<h4>${product.unitPrice} PLN</h4>
-				<p>
-					<a href="#" class="btn btn-warning btn-md"><span class="glyphicon-shopping-cart glyphicon"></span> Zamów teraz</a>
+				<p ng-controller="cartCtrl">
+					<a href="#" class="btn btn-warning btn-md" ng-click="addToCart('${product.productId}')"><span class="glyphicon-shopping-cart glyphicon"></span> Zamów teraz</a>
+					<a href="<spring:url value="/cart" />" class="btn btn-default"><span class="glyphicon glyphicon-hand-right"></span> Koszyk</a>
 					<a href="<spring:url value="/products" />" class="btn btn-info btn-md"><span class="glyphicon glyphicon-hand-left"></span> Wstecz</a>
 				</p>
 					
 			</div>
 		</div>
 	</section>
+	<script src = "/webstore/resource/js/controller.js" ></script>
 </body>
 </html>
