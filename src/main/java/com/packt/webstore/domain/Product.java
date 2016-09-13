@@ -13,6 +13,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.packt.webstore.validator.Category;
 import com.packt.webstore.validator.ProductId;
 
@@ -129,11 +130,11 @@ public class Product {
 	public void setCondition(String condition) {
 		this.condition = condition;
 	}
+	
 	@XmlTransient
 	public MultipartFile getProductImage() {
 		return productImage;
 	}
-
 	public void setProductImage(MultipartFile productImage) {
 		this.productImage = productImage;
 	}

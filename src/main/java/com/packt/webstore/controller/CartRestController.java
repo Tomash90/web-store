@@ -60,6 +60,7 @@ public class CartRestController {
 			cart = cartService.create(new Cart(sessionId));
 		}
 		Product product = productService.getProductById(productId);
+		product.setProductImage(null);
 		if(product == null) {
 			throw new IllegalArgumentException(new ProductNotFoundException(productId));
 		}

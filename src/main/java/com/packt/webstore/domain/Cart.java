@@ -14,9 +14,9 @@ public class Cart {
 		grandTotal = new BigDecimal(0);
 	}
 	public Cart(String cartId) {
-		this.cartId = cartId;
 		cartItems = new HashMap<String, CartItem>();
 		grandTotal = new BigDecimal(0);
+		this.cartId = cartId;
 	}
 
 	public String getCartId() {
