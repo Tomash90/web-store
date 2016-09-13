@@ -9,9 +9,9 @@
 <meta name="_csrf" content="${_csrf.token}"/>
 <meta name="_csrf_header" content="${_csrf.headerName}"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-
+<link rel="stylesheet" href="/webstore/resource/css/bootstrap.css">
+<script src="/webstore/resource/js/bootstrap.js"></script>
+<script src = "/webstore/resource/js/angular.min.js" ></script>
 <title>Koszyk</title>
 </head>
 <body>
@@ -26,7 +26,7 @@
 		<div ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
 			<div>
 				<a class="btn btn-danger pull-left" ng-click="clearCart()"><span class = "glyphicon glyphicon-remove-sign"></span> Wyczyść koszyk</a>
-				<a href="#" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart glyphicon"></span> Kupuję</a>
+				<a href="<spring:url value="/checkout?cartId=${cartId}"/>" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart glyphicon"></span> Kupuję</a>
 			</div>
 			<table class="table table-hover">
 				<tr>

@@ -1,5 +1,6 @@
 package com.packt.webstore.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.validation.constraints.Digits;
@@ -18,7 +19,9 @@ import com.packt.webstore.validator.Category;
 import com.packt.webstore.validator.ProductId;
 
 @XmlRootElement
-public class Product {
+public class Product implements Serializable {
+
+	private static final long serialVersionUID = 1962837967388395307L;
 	@Pattern(regexp="D[0-9]+", message="{Pattern.Product.productId.validation}")
 	@ProductId
 	private String productId;

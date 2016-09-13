@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/webstore/resource/css/bootstrap.css">
+<script src="/webstore/resource/js/bootstrap.js"></script>
 <title>Witaj</title>
 </head>
 <body>

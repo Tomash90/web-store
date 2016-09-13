@@ -60,10 +60,10 @@ public class CartRestController {
 			cart = cartService.create(new Cart(sessionId));
 		}
 		Product product = productService.getProductById(productId);
-		product.setProductImage(null);
 		if(product == null) {
 			throw new IllegalArgumentException(new ProductNotFoundException(productId));
 		}
+		product.setProductImage(null);
 		CartItem cartItem = new CartItem(product);
 		cart.addCartItem(cartItem);
 		cartService.update(sessionId, cart);

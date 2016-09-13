@@ -1,10 +1,13 @@
 package com.packt.webstore.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cart {
+public class Cart implements Serializable {
+
+	private static final long serialVersionUID = -6522002126143720342L;
 	private String cartId;
 	private Map<String, CartItem> cartItems;
 	private BigDecimal grandTotal;
@@ -14,8 +17,7 @@ public class Cart {
 		grandTotal = new BigDecimal(0);
 	}
 	public Cart(String cartId) {
-		cartItems = new HashMap<String, CartItem>();
-		grandTotal = new BigDecimal(0);
+		this();
 		this.cartId = cartId;
 	}
 
@@ -69,4 +71,28 @@ public class Cart {
 			grandTotal = grandTotal.add(item.getTotalPrice());
 		}
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cartId == null) ? 0 : cartId.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cart other = (Cart) obj;
+		if (cartId == null) {
+			if (other.cartId != null)
+				return false;
+		} else if (!cartId.equals(other.cartId))
+			return false;
+		return true;
+	}
+	
 }
