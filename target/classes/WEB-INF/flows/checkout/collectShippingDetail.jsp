@@ -2,23 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<!DOCTYPE>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/webstore/resource/css/bootstrap.css">
-<script src="/webstore/resource/js/bootstrap.js"></script>
-<title>Klient</title>
-</head>
-<body>
-	<section>
-		<div class="jumbotron">
-			<div class="container">
-				<h1>Wysyłka</h1>
-				<p>Dane do Wysyłki<p>
-			</div>
-		</div>
-	</section>
 	<section class="container">
 		<form:form modelAttribute="order.shippingDetail" class="form-horizontal">
 			<fieldset>
@@ -82,5 +66,3 @@
 				</fieldset>
 		</form:form>
 	</section>
-</body>
-</html>

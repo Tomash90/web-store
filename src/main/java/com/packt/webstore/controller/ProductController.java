@@ -40,7 +40,7 @@ public class ProductController {
 	private ProductService productService;
 	
 	@Autowired
-	private ProductValidator producValidator;
+	private ProductValidator productValidator;
 	
 	@RequestMapping
 	public String list (Model model) {
@@ -125,7 +125,7 @@ public class ProductController {
 	@InitBinder
 	public void initialiseBinder(WebDataBinder binder){
 		binder.setAllowedFields("productId","name","unitPrice","description","manufacturer", "category", "unitsInStock","condition","productImage","language");
-		binder.setValidator(producValidator);
+		binder.setValidator(productValidator);
 	}
 	
 	@ExceptionHandler(ProductNotFoundException.class)

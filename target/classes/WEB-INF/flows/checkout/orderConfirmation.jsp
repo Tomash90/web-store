@@ -3,23 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/webstore/resource/css/bootstrap.css">
-<script src="/webstore/resource/js/bootstrap.js"></script>
-<title>Potwierdzenie zamówienia</title>
-</head>
-<body>
-<section>
-		<div class="jumbotron">
-			<div class="container">
-				<h1>Zamówienie</h1>
-				<p>Potwierdzenie zamówienia<p>
-			</div>
-		</div>
-	</section>
 	<div class = "container">
 		<div class="row">
 			<form:form modelAttribute="order" class="form-horizontal">
@@ -98,5 +82,3 @@
 			</form:form>
 		</div>
 	</div>
-</body>
-</html>

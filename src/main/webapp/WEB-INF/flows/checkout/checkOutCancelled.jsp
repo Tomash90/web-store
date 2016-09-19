@@ -8,17 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/webstore/resource/css/bootstrap.css">
 <script src="/webstore/resource/js/bootstrap.js"></script>
-<title>Zamówienie anulowane!</title>
-</head>
-<body>
-<section>
-		<div class="jumbotron">
-			<div class="container">
-				<h1 class="alert alert-danger">Zamówienie anulowane!</h1>
-				<p>Proces składania zamówienia został anulowany!</p>
-			</div>
-		</div>
-	</section>
 	<section>
 		<div class="container">
 			<p>

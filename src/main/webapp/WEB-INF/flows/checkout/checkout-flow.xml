@@ -2,15 +2,15 @@
 <flow xmlns="http://www.springframework.org/schema/webflow"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
-                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
                           
 	<var name="order" class="com.packt.webstore.domain.Order" />
 	<action-state id="addCartToOrder">
 		<evaluate expression="catServiceImpl.validate(requestParameters.cartId)" result="order.cart" />
 		<transition to="InvalidCartWarning" on-exception="com.packt.webstore.exception.InvalidCartException"/>
-		<transition to="collectCustomerInfo" />
+		<transition to="CollectCustomerInfo" />
 	</action-state>
-	<view-state id="collectCustomerInfo" view="collectCustomerInfo.jsp" model="order">
+	<view-state id="CollectCustomerInfo" model="order">
 		<transition on = "customerInfoCollected" to="collectShippingDetail"/>
 	</view-state>
 	<view-state id="collectShippingDetail" model="order">
@@ -31,8 +31,8 @@
 	<view-state id="thankCustomer" model ="order">
 		<transition to="endState"/>
 	</view-state>
-	<end-state id="endState" view="checkOutCancelled.jsp"/>
-	<end-state id="cancelCheckout" view="checkOutCancelled.jsp"/>
+	<end-state id="endState" view="CheckOutCancelled"/>
+	<end-state id="cancelCheckout" view="CheckOutCancelled"/>
 	<global-transitions>
 		<transition on="cancel" to="endState"/>
 	</global-transitions>

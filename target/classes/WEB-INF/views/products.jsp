@@ -2,23 +2,6 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<!DOCTYPE>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/webstore/resource/css/bootstrap.css">
-<script src="/webstore/resource/js/bootstrap.js"></script>
-<title>Produkty</title>
-</head>
-<body>
-	<section>
-		<div class = "jumbotron">
-			<div class = "container">
-				<h1>Produkty</h1>
-				<p>Lista produktów dostępna w naszym sklepie</p>
-			</div>
-		</div>
-	</section>
 	<section class = "container">
 		<div class = "row">
 		<c:forEach items="${products}" var="product">
@@ -38,5 +21,3 @@
 			</c:forEach>
 		</div>
 	</section>
-</body>
-</html>
