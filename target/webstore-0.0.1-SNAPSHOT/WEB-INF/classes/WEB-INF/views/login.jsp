@@ -7,19 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>Produkty</title>
-</head>
-<body>
-	<section>
-		<div class = "jumbotron">
-			<div class = "container">
-				<h1>Produkty</h1>
-				<p>Dodaj Produkty</p>
-			</div>
-		</div>
-	</section>
+<link rel="stylesheet" href="/webstore/resource/css/bootstrap.css">
+<script src="/webstore/resource/js/bootstrap.js"></script>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-5 col-sm-offset-4">

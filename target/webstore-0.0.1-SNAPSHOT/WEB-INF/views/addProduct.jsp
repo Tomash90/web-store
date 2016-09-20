@@ -7,17 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title><spring:message code="addProduct.form.addProducts.title"/></title>
+<link rel="stylesheet" href="/webstore/resource/css/bootstrap.css">
+ <script src="/webstore/resource/js/bootstrap.js"></script>
 </head>
 <body>
-	<section>
-		<div class = "jumbotron">
-			<div class = "container">
-				<h1><spring:message code="addProduct.form.products.header"/></h1>
-				<p><spring:message code="addProduct.form.addProducts.paragraph"/></p>
-			</div>
+	<section class="container">
 			<div class = "pull-right" style="padding-right:40px">
 			<c:url var="logoutUrl" value="/logout"/> 
 			<form action="${logoutUrl}" method="post"> 
@@ -25,10 +19,6 @@
   				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			</form>
 			</div>
-			<div class = "pull-right" style="padding-right:50px">
-			<a href="?language=pl">polski</a> | <a href="?language=en">english</a>
-			</div>
-		</div>
 	</section>
 	<section class="container">
 		<form:form modelAttribute="newProduct" class="form-horizontal" enctype="multipart/form-data">
