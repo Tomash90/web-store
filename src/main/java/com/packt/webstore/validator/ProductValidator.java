@@ -6,10 +6,13 @@ import java.util.Set;
 import javax.validation.ConstraintViolation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import com.packt.webstore.domain.Product;
+import com.packt.webstore.domain.DTO.ProductDTO;
+
 
 public class ProductValidator implements Validator {
 	
@@ -27,11 +30,12 @@ public class ProductValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> arg0) {
-		return Product.class.isAssignableFrom(arg0);
+		return ProductDTO.class.isAssignableFrom(arg0);
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
+		
 		Set<ConstraintViolation<Object>> constraintViolations = beanValidator.validate(target);
 		for(ConstraintViolation<Object> constraintViolation : constraintViolations) {
 			String propertyPath = constraintViolation.getPropertyPath().toString();
@@ -41,5 +45,5 @@ public class ProductValidator implements Validator {
 		for(Validator validator : springValidators){
 			validator.validate(target, errors);
 		}
-	}
+		}
 }

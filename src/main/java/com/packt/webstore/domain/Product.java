@@ -2,7 +2,11 @@ package com.packt.webstore.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -19,29 +23,25 @@ import com.packt.webstore.validator.Category;
 import com.packt.webstore.validator.ProductId;
 
 @XmlRootElement
+@Entity
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1962837967388395307L;
-	@Pattern(regexp="D[0-9]+", message="{Pattern.Product.productId.validation}")
-	@ProductId
+
+	@Id
 	private String productId;
-	@Size(min=4,max=50,message="{Size.Product.name.validation}")
+	
 	private String name;
-	@Min(value=0, message="{Min.Product.unitPrice.validation}")
-	@Digits(integer=6, fraction=2,message="{Digits.Product.unitPrice.validation}")
-	@NotNull(message="{NotNull.Product.unitPrice.validation}")
 	private BigDecimal unitPrice;
 	private String description;
 	private String manufacturer;
-	@NotNull(message="{NotNull.Product.category.validation}")
-	@Category(allowedCategories = {"RTS", "RPG", "FPS"})
 	private String category;
-	@Min(value = 0, message="{Min.Product.unitsInStock.validation}")
 	private long unitsInStock;
 	private long unitsInOrder;
 	private boolean discontinued;
 	private String condition;
 	@JsonIgnore
+	@Transient
 	private MultipartFile productImage;
 	
 	public Product(){
@@ -51,6 +51,7 @@ public class Product implements Serializable {
 	public Product(String productId, String name, BigDecimal unitPrice){
 		this.productId = productId;
 		this.name = name;
+		unitPrice = unitPrice.setScale(2, RoundingMode.CEILING);
 		this.unitPrice = unitPrice;
 	}
 
@@ -59,6 +60,7 @@ public class Product implements Serializable {
 	}
 
 	public void setProductId(String productId) {
+		unitPrice.setScale(2, RoundingMode.CEILING);
 		this.productId = productId;
 	}
 
@@ -71,11 +73,12 @@ public class Product implements Serializable {
 	}
 
 	public BigDecimal getUnitPrice() {
+		unitPrice = unitPrice.setScale(2, RoundingMode.CEILING);
 		return unitPrice;
 	}
 
 	public void setUnitPrice(BigDecimal unitPrice) {
-		this.unitPrice = unitPrice;
+		unitPrice = this.unitPrice = unitPrice;
 	}
 
 	public String getDescription() {

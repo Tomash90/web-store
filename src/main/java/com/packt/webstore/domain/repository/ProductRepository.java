@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
 import com.packt.webstore.domain.Product;
 
-public interface ProductRepository {
-	List<Product> getAllProducts();
-	Product getProductById(String productId);
-	List<Product> getProductsByCategory(String category);
-	Set<Product> getProductByFilter(Map <String, List<String>> filterParams);
-	List<Product> getProductByManufacturer(String manufacturer);
-	Set<Product> getProductByPriceFilter(Map <String, List<String>> filterParams);
-	void addProduct(Product product);
+@Repository
+public interface ProductRepository extends CrudRepository<Product, String> {
+	public Product findByProductId(String ProductId);
+	public List<Product> findAllByCategory(String category);
+	public List<Product> findAllByManufacturer(String manufacturer);
 }

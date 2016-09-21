@@ -27,9 +27,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.packt.webstore.domain.Product;
+import com.packt.webstore.domain.DTO.ProductDTO;
 import com.packt.webstore.exception.NoProductsFoundUnderCategoryException;
 import com.packt.webstore.exception.ProductNotFoundException;
 import com.packt.webstore.service.ProductService;
+import com.packt.webstore.validator.ProductIdValidator;
 import com.packt.webstore.validator.ProductValidator;
 
 @Controller
@@ -90,14 +92,14 @@ public class ProductController {
 	
 	@RequestMapping(value="/add", method = RequestMethod.GET)
 	public String addProductView(Model model){
-		Product newProduct = new Product();
+		ProductDTO newProduct = new ProductDTO();
 		model.addAttribute("newProduct", newProduct);
 		return "addProduct";
 	}
 	
 	@RequestMapping(value="/add", method = RequestMethod.POST)
-	public String addNewProductForm(@ModelAttribute("newProduct") @Valid Product newProduct, BindingResult result, HttpServletRequest request){
-		String[] suppressedFileds = result.getSuppressedFields();
+	public String addNewProductForm(@ModelAttribute("newProduct") @Valid ProductDTO newProduct, BindingResult result, HttpServletRequest request){
+		String[] suppressedFileds = result.getSuppressedFields();	
 		if(result.hasErrors()){
 			return "addProduct";
 		}
@@ -114,7 +116,14 @@ public class ProductController {
 				throw new RuntimeException("Próba zapisu zdjęcia nie powiodła się", e);
 			}
 		}
-		productService.addProduct(newProduct);
+		Product product = new Product(newProduct.getProductId(), newProduct.getName(), newProduct.getUnitPrice());
+		product.setCategory(newProduct.getCategory());
+		product.setCondition(newProduct.getCondition());
+		product.setDescription(newProduct.getDescription());
+		product.setManufacturer(newProduct.getManufacturer());
+		product.setProductImage(newProduct.getProductImage());
+		product.setUnitsInStock(newProduct.getUnitsInStock());
+		productService.addProduct(product);
 		return "redirect:/products";
 	}
 	@RequestMapping("/invalidPromoCode")
@@ -125,7 +134,7 @@ public class ProductController {
 	@InitBinder
 	public void initialiseBinder(WebDataBinder binder){
 		binder.setAllowedFields("productId","name","unitPrice","description","manufacturer", "category", "unitsInStock","condition","productImage","language");
-		binder.setValidator(productValidator);
+//		binder.setValidator(productValidator);
 	}
 	
 	@ExceptionHandler(ProductNotFoundException.class)
