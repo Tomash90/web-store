@@ -8,18 +8,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/webstore/resource/css/bootstrap.css">
- <script src="/webstore/resource/js/bootstrap.js"></script>
+<script src="/webstore/resource/js/bootstrap.js"></script>
 </head>
 <body>
-	<section class="container">
-			<div class = "pull-right" style="padding-right:40px">
-			<c:url var="logoutUrl" value="/logout"/> 
-			<form action="${logoutUrl}" method="post"> 
-  				<input class ="btn btn-danger btn-mini pull-right"  type="submit" value="<spring:message code="addProduct.form.logout.submit"/>" />
-  				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-			</form>
-			</div>
-	</section>
 	<section class="container">
 		<form:form modelAttribute="newProduct" class="form-horizontal" enctype="multipart/form-data">
 		<form:errors path="*" cssClass="alert alert-danger" element="div"/>

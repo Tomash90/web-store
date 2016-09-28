@@ -10,12 +10,6 @@
 			<fieldset>
 				<legend>Dane klienta</legend>
 				<div class="form-group">
-					<label class="control-label col-sm-2 col-sm-2" for="customerId"/>Identyfikator klienta</label>
-					<div class="col-sm-10">
-						<form:input id="customerId" path="customerId" type="text" class="form:input-large"/>
-					</div>
-				</div>
-				<div class="form-group">
 					<label class="control-label col-sm-2 col-sm-2" for="name"/>Imie i nazwisko</label>
 					<div class="col-sm-10">
 						<form:input id="name" path="name" type="text" class="form:input-large"/>

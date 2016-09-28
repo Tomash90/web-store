@@ -2,6 +2,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
     <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+     <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE>
 <html lang="pl">
 <head>
@@ -15,10 +16,18 @@
 <body>
 	<div class="container">
 		<div class="header">
+				<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">	
+			<div class = "pull-right" style="padding-right:40px">
+			<c:url var="logoutUrl" value="/logout"/> 
+			<form action="${logoutUrl}" method="post"> 
+  				<input class ="btn btn-danger btn-mini pull-right"  type="submit" value="<spring:message code="addProduct.form.logout.submit"/> [<sec:authentication property="principal.username" />]" />
+  				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			</form>
+			</div>
+	</sec:authorize>
 			<ul class="nav nav-pills pull-right">
 				<tiles:insertAttribute name="navigation"/>
 			</ul>
-				
 			<h3 class="text-muted">Sklep internetowy</h3>
 			<div style="padding-right:50px">
 			<a href="?language=pl">polski</a> | <a href="?language=en">english</a>
@@ -31,12 +40,10 @@
 			<p>
 				<tiles:insertAttribute name="tagline" />
 			</p>
-
 		</div>
 		<div class="row">
 			<tiles:insertAttribute name="content"/>
 		</div>
-		
 		<div class="footer">
 			<tiles:insertAttribute name="footer"/>
 		</div>

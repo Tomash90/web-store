@@ -5,14 +5,36 @@
                           http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
                           
 	<var name="order" class="com.packt.webstore.domain.Order" />
+	<var name="address" class="com.packt.webstore.domain.Address"/>
 	<action-state id="addCartToOrder">
 		<evaluate expression="catServiceImpl.validate(requestParameters.cartId)" result="order.cart" />
 		<transition to="InvalidCartWarning" on-exception="com.packt.webstore.exception.InvalidCartException"/>
-		<transition to="CollectCustomerInfo" />
+		<transition to="customerEmail" />
+	</action-state>
+	<action-state id="customerEmail">
+		<evaluate expression="customerServiceImpl.getUserName(requestParameters.username)" result="order.customer.email"/>
+		<transition to="checkCustomerExist" />
+	</action-state>	
+	<decision-state id="checkCustomerExist">
+		<if test="customerServiceImpl.isCustomerExist(order.customer.email)"
+		then="getAddress"
+		else="CollectCustomerInfo"/>
+	</decision-state>
+	<action-state id="getAddress">
+		<evaluate expression="customerServiceImpl.getCustomerByEmail(order.customer.email)" result="order.customer"/>
+		<transition to="collectShippingDetail"/>
 	</action-state>
 	<view-state id="CollectCustomerInfo" model="order">
-		<transition on = "customerInfoCollected" to="collectShippingDetail"/>
+		<transition on = "customerInfoCollected" to="saveAddress"/>
 	</view-state>
+	<action-state id="saveAddress">
+		<evaluate expression="addressServiceImpl.saveAddress(order.customer.billingAddress)"/>
+		<transition to="saveCustomer"/>
+	</action-state>
+	<action-state id="saveCustomer">
+		<evaluate expression="customerServiceImpl.saveCustomer(order.customer)"/>
+		<transition to="collectShippingDetail"/>
+	</action-state>
 	<view-state id="collectShippingDetail" model="order">
 		<transition on ="shippingDetailCollected" to="orderConfirmation"/>
 		<transition on="backToCollectCustomerInfo" to="collectCustomerInfo" />	

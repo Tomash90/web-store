@@ -24,6 +24,9 @@
 				<p>
 					<strong>Liczba sztuk w magazynie:</strong> ${product.unitsInStock}
 				</p>
+				<p>
+					<strong>Stan:</strong> ${product.condition}
+				</p>
 				<h4>${product.unitPrice} PLN</h4>
 				<p ng-controller="cartCtrl">
 					<a href="#" class="btn btn-warning btn-md" ng-click="addToCart('${product.productId}')"><span class="glyphicon-shopping-cart glyphicon"></span> Zamów teraz</a>

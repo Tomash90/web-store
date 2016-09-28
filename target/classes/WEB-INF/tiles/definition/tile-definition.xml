@@ -47,6 +47,12 @@
 		<put-attribute name="tagline" value="Wprowadź nazwę użytkownika i hasło"/>
 		<put-attribute name="content" value="/WEB-INF/views/login.jsp"/>
 	</definition>
+	<definition name="registration" extends="baseLayout">
+		<put-attribute name="title" value="Zarejstruj się" />
+		<put-attribute name="heading" value="Zarejstruj się"/>
+		<put-attribute name="tagline" value="Wprowadź email i hasło"/>
+		<put-attribute name="content" value="/WEB-INF/views/registration.jsp"/>
+	</definition>
 	<definition name="CollectCustomerInfo" extends="baseLayout">
 		<put-attribute name="title" value="Klient" />
 		<put-attribute name="heading" value="Dane klienta"/>

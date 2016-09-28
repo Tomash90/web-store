@@ -10,7 +10,7 @@
 		<div ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
 			<div>
 				<a class="btn btn-danger pull-left" ng-click="clearCart()"><span class = "glyphicon glyphicon-remove-sign"></span> Wyczyść koszyk</a>
-				<a href="<spring:url value="/checkout?cartId=${cartId}"/>" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart glyphicon"></span> Kupuję</a>
+				<a href="<spring:url value="/checkout?cartId=${cartId}&username=${username}"/>" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart glyphicon"></span> Kupuję</a>
 			</div>
 			<table class="table table-hover">
 				<tr>

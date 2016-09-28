@@ -5,6 +5,7 @@
  xmlns:context="http://www.springframework.org/schema/context"
  xmlns:tx="http://www.springframework.org/schema/tx"
  xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+ xmlns:security="http://www.springframework.org/schema/security"
  xsi:schemaLocation="
  http://www.springframework.org/schema/data/jpa 
  http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
@@ -17,10 +18,14 @@
  http://www.springframework.org/schema/beans 
  http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
  http://www.springframework.org/schema/context 
- http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+ http://www.springframework.org/schema/context/spring-context-4.0.xsd
+ http://www.springframework.org/schema/security 
+ http://www.springframework.org/schema/security/spring-security-4.1.xsd">
  
  <mvc:annotation-driven enable-matrix-variables="true" validator="validator"/>
  <context:component-scan base-package="com.packt.webstore"/>
+ <mvc:view-controller path="/" view-name="login"/>
+ <security:global-method-security secured-annotations="enabled" pre-post-annotations="enabled" />
  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
  <property name="prefix" value="/WEB-INF/views/"/>
  <property name="suffix" value=".jsp"/>
@@ -134,7 +139,7 @@
     <property name="packagesToScan" value="com.packt.webstore" />
     <property name="jpaVendorAdapter">
         <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-            <property name="showSql" value="false" />
+            <property name="showSql" value="true" />
             <property name="databasePlatform" value="org.hibernate.dialect.SQLServerDialect" />
         </bean>
     </property>

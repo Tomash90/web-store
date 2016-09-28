@@ -3,13 +3,11 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
     <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<!DOCTYPE>
-<html>
-<head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/webstore/resource/css/bootstrap.css">
 <script src="/webstore/resource/js/bootstrap.js"></script>
-	<div class="container">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link href="/webstore/resource/css/log.css" rel="stylesheet">
 		<div class="row">
 			<div class="col-sm-5 col-sm-offset-4">
 				<div class="panel panel-primary">
@@ -22,8 +20,19 @@
 								<spring:message code="AbstractUserDetailsAuthenticationProvider.badCredentials"/><br/>
 							</div>
 					</c:if>
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" id="login-form-link"><spring:message code="login.login"/></a>
+							</div>
+							<div class="col-xs-6">
+								<a href="registration"  class="active" id="register-form-link"><spring:message code="login.register"/></a>
+							</div>
+						</div>
+						<hr>
+					</div>
 					 <c:set var="loginUrl"><c:url value="/login"/></c:set>
-					<form action="${loginUrl}" method="post">
+					<form action="${loginUrl}" method="post" role="form">
 						<fieldset>
 							<div class="form-group">
 								<input class="form-control" placeholder="Login" name="username" type="text">
@@ -39,5 +48,3 @@
 			</div>
 		</div>	
 	</div>
-</body>
-</html>
