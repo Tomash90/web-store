@@ -109,11 +109,11 @@ public class ProductController {
 		MultipartFile productImage = newProduct.getProductImage();
 		String rootDirectory =request.getSession().getServletContext().getRealPath("/");
 		if(productImage!=null && !productImage.isEmpty()){
-			try{
+			try {
 				productImage.transferTo(new File(rootDirectory+"resources\\images\\"+newProduct.getProductId()+".jpg"));
 			}
 			catch(Exception e) {
-				throw new RuntimeException("Próba zapisu zdjęcia nie powiodła się", e);
+				throw new RuntimeException("Zapis zdjęcia nie powiódł się", e);
 			}
 		}
 		Product product = new Product(newProduct.getProductId(), newProduct.getName(), newProduct.getUnitPrice());

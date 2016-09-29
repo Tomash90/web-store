@@ -8,4 +8,5 @@ import com.packt.webstore.domain.Users;
 public interface UserService {
 	public Users getUserById(Integer id);
 	public void save(Users user);
+	public Users getUserByName(String name);
 }

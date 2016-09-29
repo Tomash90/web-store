@@ -1,8 +1,6 @@
 package com.packt.webstore.domain.DTO;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
