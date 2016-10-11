@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE>
 <html>
 <head>
@@ -74,7 +73,6 @@
 					<div class="col-sm-10">
 						<form:radiobutton path="condition" value="Nowy"/> <spring:message code="addProduct.form.new.radiobutton"/>
 						<form:radiobutton path="condition" value="Używany"/> <spring:message code="addProduct.form.used.radiobutton"/>
-						<form:radiobutton path="condition" value="Odnowiony"/> <spring:message code="addProduct.form.renewed.radiobutton"/>
 					</div>
 				</div>
 				<div class="form-group">

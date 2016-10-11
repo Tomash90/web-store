@@ -13,25 +13,25 @@
 				<h3>${product.name}</h3>
 				<p>${product.description}</p>
 				<p>
-					<strong>Kod produktu: </strong><span class="label label-warning">${product.productId}</span>
+					<strong><spring:message code="addProduct.form.productId.label"/>: </strong><span class="label label-warning">${product.productId}</span>
 				</p>
 				<p>
-					<strong>Producent:</strong> ${product.manufacturer}
+					<strong><spring:message code="addProduct.form.manufacturer.label"/>:</strong> ${product.manufacturer}
 				</p>
 				<p>
-					<strong>Kategoria:</strong> ${product.category}
+					<strong><spring:message code="addProduct.form.category.label"/>:</strong> ${product.category}
 				</p>
 				<p>
-					<strong>Liczba sztuk w magazynie:</strong> ${product.unitsInStock}
+					<strong><spring:message code="addProduct.form.unitsInStock.label"/>:</strong> ${product.unitsInStock}
 				</p>
 				<p>
-					<strong>Stan:</strong> ${product.condition}
+					<strong><spring:message code="product.condition"/>:</strong> ${product.condition}
 				</p>
 				<h4>${product.unitPrice} PLN</h4>
 				<p ng-controller="cartCtrl">
-					<a href="#" class="btn btn-warning btn-md" ng-click="addToCart('${product.productId}')"><span class="glyphicon-shopping-cart glyphicon"></span> Zamów teraz</a>
-					<a href="<spring:url value="/cart" />" class="btn btn-default btn-md"><span class="glyphicon glyphicon-hand-right"></span> Koszyk</a>
-					<a href="<spring:url value="/products" />" class="btn btn-info btn-md"><span class="glyphicon glyphicon-hand-left"></span> Wstecz</a>
+					<a href="#" class="btn btn-warning btn-md" ng-click="addToCart('${product.productId}')"><span class="glyphicon-shopping-cart glyphicon"></span> <spring:message code="product.button.buy"/></a>
+					<a href="<spring:url value="/cart" />" class="btn btn-default btn-md"><span class="glyphicon glyphicon-hand-right"></span> <spring:message code="product.button.cart"/></a>
+					<a href="<spring:url value="/products" />" class="btn btn-info btn-md"><span class="glyphicon glyphicon-hand-left"></span> <spring:message code="product.button.back"/></a>
 				</p>
 					
 			</div>

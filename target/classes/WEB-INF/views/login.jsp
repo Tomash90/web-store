@@ -17,7 +17,7 @@
 							<a href="#" id="login-form-link" class="active"><spring:message code="login.login"/></a>
 						</div>
 						<div class="col-xs-6">
-							<a href="registration"   id="register-form-link"><spring:message code="login.register"/></a>
+							<a href="registration" id="register-form-link"><spring:message code="login.register"/></a>
 						</div>
 					</div>
 					<hr>
@@ -36,12 +36,12 @@
 									<input class="form-control" placeholder="Login" name="username" type="text" tabindex="1">
 								</div>
 								<div class="form-group">
-									<input class="form-control" placeholder="Hasło" name="password" type="password" tabindex="2" value="">
+									<input class="form-control" placeholder="<spring:message code="login.placeholder.password"/>" name="password" type="password" tabindex="2" value="">
 								</div>
 								<div class="form-group">
 									<div class="row">
 										<div class="col-sm-6 col-sm-offset-3">
-											<input class="btn btn-lg btn-success btn-block" type="submit" value="Zaloguj się">
+											<input class="btn btn-lg btn-success btn-block" type="submit" value="<spring:message code="login.button.login"/>">
 											<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
 										</div>
 									</div>

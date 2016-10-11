@@ -17,7 +17,7 @@ public class InMemoryOrderRepositoryImpl implements OrderRepository {
 	
 	public InMemoryOrderRepositoryImpl() {
 		listOfOrders = new HashMap<Long, Order>();
-		nextOrderId = 1000;
+		nextOrderId = 500;
 	}
 
 	@Override

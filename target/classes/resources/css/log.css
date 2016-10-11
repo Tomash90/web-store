@@ -94,3 +94,12 @@
 	background-color: #1CA347;
 	border-color: #1CA347;
 }
+
+.jumbotron {
+	color: ;
+	background-color:#bfd9bf;
+}
+
+ .nav-pills > .active > a, .nav-pills > .active > a:hover {
+    background-color: red;
+}
