@@ -37,23 +37,23 @@ public class CartRestControllerTest {
 	
 	@Test
 	public void read_method_should_return_correct_cart_Json_object() throws Exception {
-		this.mockMvc.perform(put("/rest/cart/add/D1234").session(session)).andExpect(status().is(204));
+		this.mockMvc.perform(put("/rest/cart/add/D1238").session(session)).andExpect(status().is(204));
 		
 		this.mockMvc.perform(get("/rest/cart/" + session.getId()).session(session)).andExpect(status().isOk())
-		.andExpect(jsonPath("$.cartItems.D1234.product.productId").value("D1234"));
+		.andExpect(jsonPath("$.cartItems.D1238.product.productId").value("D1238"));
 		
 	}
 	
 	@Test
 	public void remove_method_should_remove_product_from_cart() throws Exception {
-		this.mockMvc.perform(put("/rest/cart/add/D1234").session(session)).andExpect(status().is(204));
+		this.mockMvc.perform(put("/rest/cart/add/D1238").session(session)).andExpect(status().is(204));
 		
-		this.mockMvc.perform(put("/rest/cart/remove/D1234").session(session)).andExpect(status().is(204));
+		this.mockMvc.perform(put("/rest/cart/remove/D1238").session(session)).andExpect(status().is(204));
 	}
 	
 	@Test
 	public void delete_cart_method() throws Exception {
-		this.mockMvc.perform(put("/rest/cart/add/D1234").session(session)).andExpect(status().is(204));
+		this.mockMvc.perform(put("/rest/cart/add/D1238").session(session)).andExpect(status().is(204));
 		
 		this.mockMvc.perform(delete("/rest/cart/" + session.getId()).session(session)).andExpect(status().is(204));
 	}

@@ -9,6 +9,7 @@ import org.springframework.validation.BindException;
 import org.springframework.validation.ValidationUtils;
 
 import com.packt.webstore.domain.Product;
+import com.packt.webstore.domain.DTO.ProductDTO;
 
 import java.math.BigDecimal;
 
@@ -26,7 +27,7 @@ public class ProductValidatorTest {
 	
 	@Test
 	public void product_without_UnitPrice_should_be_invalid() {
-		Product product = new Product();
+		ProductDTO product = new ProductDTO();
 		BindException bindException = new BindException(product,"product");
 		
 		ValidationUtils.invokeValidator(productValidator, product, bindException);
@@ -37,7 +38,7 @@ public class ProductValidatorTest {
 	
 	@Test
 	public void product_with_existing_productId_invalid() {
-		Product gta = new Product("D1234","GTA V", new BigDecimal(100));
+		ProductDTO gta = new ProductDTO("D1237","GTA V", new BigDecimal(100));
 		gta.setCategory("RTS");
 		BindException bindException = new BindException(gta,"product");
 		
@@ -49,7 +50,7 @@ public class ProductValidatorTest {
 	
 	@Test
 	public void a_valid_product_should_not_get_any_error_during_validation() {
-		Product test1 = new Product("D1237","test1", new BigDecimal(50));
+		ProductDTO test1 = new ProductDTO("D1231","test1", new BigDecimal(50));
 		test1.setCategory("RTS");
 		
 		BindException bindException = new BindException(test1,"product");

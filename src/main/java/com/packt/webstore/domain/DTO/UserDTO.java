@@ -10,14 +10,13 @@ import com.packt.webstore.validator.Username;
 public class UserDTO {
 	
 		@Email
-		@NotBlank(message="{NotNull.User.username.validation}")
+		@NotBlank(message="{notNull.user.username.validation}")
 		@Username
 		private String username;
-		@NotBlank(message="{NotNull.User.password.validation}")
-		@Size(min=6, max=20, message="{size.User.password.validation}")
-		@Pattern(regexp="((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})", message="{Pattern.User.password.validation}")
+		@NotBlank(message="{notNull.user.password.validation}")
+		@Pattern(regexp="((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})", message="{pattern.user.password.validation}")
 		private String password;
-		@NotBlank(message="{NotNull.User.confirmPassword.validation}")
+		@NotBlank(message="{notNull.user.confirmPassword.validation}")
 		private String confirmPassword;
 	
 		public String getUsername() {

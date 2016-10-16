@@ -1,1 +1,0 @@
-<p>&copy; Sulek Company 2016</p>
