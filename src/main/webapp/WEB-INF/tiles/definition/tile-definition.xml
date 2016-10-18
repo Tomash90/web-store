@@ -53,20 +53,20 @@
 		<put-attribute name="tagline" value="Wprowadź email i hasło"/>
 		<put-attribute name="content" value="/WEB-INF/views/registration.jsp"/>
 	</definition>
-	<definition name="CollectCustomerInfo" extends="baseLayout">
+	<definition name="collectCustomerInfo" extends="baseLayout">
 		<put-attribute name="title" value="Klient" />
 		<put-attribute name="heading" value="Dane klienta"/>
-		<put-attribute name="content" value="/WEB-INF/flows/checkout/CollectCustomerInfo.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/flows/checkout/collectCustomerInfo.jsp"/>
 	</definition>
 	<definition name="collectShippingDetail" extends="baseLayout">
 		<put-attribute name="title" value="Dane do wysyłki" />
 		<put-attribute name="heading" value="Dane do wysyłki"/>
 		<put-attribute name="content" value="/WEB-INF/flows/checkout/collectShippingDetail.jsp"/>
 	</definition>
-	<definition name="InvalidCartWarning" extends="baseLayout">
+	<definition name="invalidCartWarning" extends="baseLayout">
 		<put-attribute name="title" value="Błędny koszyk" />
 		<put-attribute name="heading" value="Błędny koszyk" />
-		<put-attribute name="content" value="/WEB-INF/flows/checkout/InvalidCartWarning.jsp" />
+		<put-attribute name="content" value="/WEB-INF/flows/checkout/invalidCartWarning.jsp" />
 	</definition>
 	<definition name="orderConfirmation" extends="baseLayout">
 		<put-attribute name="title" value="Potwierdzenie zamówienia" />
@@ -78,10 +78,10 @@
 		<put-attribute name="heading" value="Dziękujęmy za zakupy w naszym sklepie!" />
 		<put-attribute name="content" value="/WEB-INF/flows/checkout/thankCustomer.jsp" />
 	</definition>
-	<definition name="CheckOutCancelled" extends="baseLayout">
+	<definition name="checkOutCancelled" extends="baseLayout">
 		<put-attribute name="title" value="Zamówienie anulowane!" />
 		<put-attribute name="heading" value="Zamówienie anulowane!" />
 		<put-attribute name="tagline" value="Proces składania zamówienia został anulowany!"/>
-		<put-attribute name="content" value="/WEB-INF/flows/checkout/CheckOutCancelled.jsp" />
+		<put-attribute name="content" value="/WEB-INF/flows/checkout/checkOutCancelled.jsp" />
 	</definition>
 </tiles-definitions>

@@ -28,14 +28,22 @@ public class ProductValidator implements Validator {
 		this.springValidators = springValidators;
 	}
 
+	/**
+	 * Check if ProductDTO can be validate by validator
+	 * @param clazz the Class that validator is being asked if it can validate
+	 * @return false if validator can't validate ProductDTO
+	 */
 	@Override
 	public boolean supports(Class<?> arg0) {
 		return ProductDTO.class.isAssignableFrom(arg0);
 	}
-
+	/**
+	 * Validate ProductDTO object 
+	 * @param target ProductDTO object that is to be validated
+	 * @param errors state about validation
+	 */
 	@Override
 	public void validate(Object target, Errors errors) {
-		
 		Set<ConstraintViolation<Object>> constraintViolations = beanValidator.validate(target);
 		for(ConstraintViolation<Object> constraintViolation : constraintViolations) {
 			String propertyPath = constraintViolation.getPropertyPath().toString();

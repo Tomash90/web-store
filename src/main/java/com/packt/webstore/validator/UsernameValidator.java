@@ -14,9 +14,14 @@ public class UsernameValidator implements ConstraintValidator<Username, String> 
 	
 	@Override
 	public void initialize(Username arg0) {
-		// TODO Auto-generated method stub
 	}
-
+	
+	/**
+	 * Check if given username exist in database
+	 * @param value username to check
+	 * @param context context in which the constraint is evaluated
+	 * @return false if username doesn't exist in database
+	 */
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		Users user;

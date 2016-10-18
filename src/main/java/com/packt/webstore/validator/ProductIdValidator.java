@@ -15,10 +15,14 @@ public class ProductIdValidator implements ConstraintValidator<ProductId, String
 	
 	@Override
 	public void initialize(ProductId arg0) {
-		// TODO Auto-generated method stub
-		
 	}
-
+	
+	/**
+	 * Check if given product id exist in database
+	 * @param value product id to check
+	 * @param context context in which the constraint is evaluated
+	 * @return false if product id doesn't exist in database
+	 */
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		Product product;

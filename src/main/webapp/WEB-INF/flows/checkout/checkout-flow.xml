@@ -8,7 +8,7 @@
 	<var name="address" class="com.packt.webstore.domain.Address"/>
 	<action-state id="addCartToOrder">
 		<evaluate expression="catServiceImpl.validate(requestParameters.cartId)" result="order.cart" />
-		<transition to="InvalidCartWarning" on-exception="com.packt.webstore.exception.InvalidCartException"/>
+		<transition to="invalidCartWarning" on-exception="com.packt.webstore.exception.InvalidCartException"/>
 		<transition to="customerEmail" />
 	</action-state>
 	<action-state id="customerEmail">
@@ -53,9 +53,9 @@
 	<view-state id="thankCustomer" model ="order">
 		<transition to="endState"/>
 	</view-state>
-	<end-state id="endState" view="checkOutCancelled"/>
+	<end-state id="endState"/>
 	<end-state id="cancelCheckout" view="checkOutCancelled"/>
 	<global-transitions>
-		<transition on="cancel" to="endState"/>
+		<transition on="cancel" to="cancelCheckout"/>
 	</global-transitions>
 </flow>

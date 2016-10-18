@@ -11,7 +11,12 @@ public class PasswordValidator implements Validator {
 	public boolean supports(Class<?> arg0) {
 		return UserDTO.class.isAssignableFrom(arg0);
 	}
-
+	
+	/**
+	 * Check if password equals confirmed password 
+	 * @param target userDTO object that is to be validated
+	 * @param errors state about validation
+	 */
 	@Override
 	public void validate(Object target, Errors errors) {
 		UserDTO userDto = (UserDTO) target;
