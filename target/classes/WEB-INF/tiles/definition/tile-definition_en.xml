@@ -4,6 +4,7 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 	<definition name="baseLayout" template="/WEB-INF/tiles/template/baseLayout.jsp">
+		<put-attribute name="language" value=""/>
 		<put-attribute name="title" value="Przładowy tytuł" />
 		<put-attribute name="heading" value=""/>
 		<put-attribute name="tagline" value=""/>
@@ -12,9 +13,58 @@
 		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
 	</definition>
 <definition name="addProduct" extends="baseLayout">
+		<put-attribute name="language" value="/WEB-INF/tiles/template/language.jsp"/>
 		<put-attribute name="title" value="Add product" />
 		<put-attribute name="heading" value="Products"/>
 		<put-attribute name="tagline" value="Add Products"/>
 		<put-attribute name="content" value="/WEB-INF/views/addProduct.jsp"/>
+</definition>
+<definition name="products" extends="baseLayout">
+		<put-attribute name="language" value="/WEB-INF/tiles/template/language.jsp"/>
+		<put-attribute name="title" value="Products" />
+		<put-attribute name="heading" value="Products"/>
+		<put-attribute name="tagline" value="Products available in our store"/>
+		<put-attribute name="content" value="/WEB-INF/views/products.jsp"/>
+</definition>
+<definition name="login" extends="baseLayout">
+		<put-attribute name="language" value="/WEB-INF/tiles/template/language.jsp"/>
+		<put-attribute name="title" value="Log in" />
+		<put-attribute name="heading" value="Log in"/>
+		<put-attribute name="tagline" value="Log in with email"/>
+		<put-attribute name="content" value="/WEB-INF/views/login.jsp"/>
 	</definition>
+<definition name="registration" extends="baseLayout">
+		<put-attribute name="language" value="/WEB-INF/tiles/template/language.jsp"/>
+		<put-attribute name="title" value="Sign up" />
+		<put-attribute name="heading" value="Sign up"/>
+		<put-attribute name="tagline" value="Sign up with email"/>
+		<put-attribute name="content" value="/WEB-INF/views/registration.jsp"/>
+</definition>
+<definition name="product" extends="baseLayout">
+		<put-attribute name="title" value="Product" />
+		<put-attribute name="heading" value="Product"/>
+		<put-attribute name="content" value="/WEB-INF/views/product.jsp"/>
+</definition>
+<definition name="cart" extends="baseLayout">
+		<put-attribute name="language" value="/WEB-INF/tiles/template/language.jsp"/>
+		<put-attribute name="title" value="Cart" />
+		<put-attribute name="heading" value="Cart"/>
+		<put-attribute name="tagline" value="Products in your cart"/>
+		<put-attribute name="content" value="/WEB-INF/views/cart.jsp"/>
+</definition>
+<definition name="collectCustomerInfo" extends="baseLayout">
+		<put-attribute name="title" value="Customer" />
+		<put-attribute name="heading" value="Customer Details"/>
+		<put-attribute name="content" value="/WEB-INF/flows/checkout/collectCustomerInfo.jsp"/>
+</definition>
+<definition name="collectShippingDetail" extends="baseLayout">
+		<put-attribute name="title" value="Shipping details" />
+		<put-attribute name="heading" value="Shipping details"/>
+		<put-attribute name="content" value="/WEB-INF/flows/checkout/collectShippingDetail.jsp"/>
+</definition>
+<definition name="orderConfirmation" extends="baseLayout">
+		<put-attribute name="title" value="Order Confirmation" />
+		<put-attribute name="heading" value="Order Confirmation" />
+		<put-attribute name="content" value="/WEB-INF/flows/checkout/orderConfirmation.jsp" />
+</definition>
 </tiles-definitions>

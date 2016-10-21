@@ -1,6 +1,7 @@
 package com.packt.webstore.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,12 +15,16 @@ public class CartController {
 	
 	@RequestMapping
 	public String get(HttpServletRequest request) {
-		return "redirect:/cart/" + request.getSession(true).getId();
+		HttpSession session = request.getSession(true);    
+		session.setAttribute("username", request.getRemoteUser());
+		String uname = (String) request.getSession(true).getAttribute("username");
+		return "redirect:/cart/" + request.getSession(true).getId() +"/"+ uname ;
 	}
 	
-	@RequestMapping(value= "/{cartId}", method= RequestMethod.GET) 
-	public String getCart(@PathVariable(value = "cartId") String cartId, Model model) {
+	@RequestMapping(value= "/{cartId}/{username}", method= RequestMethod.GET) 
+	public String getCart(@PathVariable(value = "cartId") String cartId, @PathVariable(value="username") String username, Model model) {
 		model.addAttribute("cartId", cartId);
+		model.addAttribute("username", username);
 		return "cart";
 	}
 }

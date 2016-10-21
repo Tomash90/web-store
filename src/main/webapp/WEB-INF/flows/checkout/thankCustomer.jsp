@@ -16,7 +16,7 @@
 			<div class="container">
 				<h1 class="alert alert-danger">Zamówienie złożone do realizacji</h1>
 				<p>Dziękujemy za złożenie zamówienia. Planowana data wysyłki:
-				 <fmt:formatDate type="date"	value="${order.shippingDetail.shippingDate}" />!</p>
+				 <fmt:formatDate type="date" value="${order.shippingDetail.shippingDate}" />!</p>
 				<p>Numer Twojego zamówienia: ${order.orderId}</p>
 			</div>
 		</div>

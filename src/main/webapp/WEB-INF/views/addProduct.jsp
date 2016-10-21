@@ -1,25 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<!DOCTYPE>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <link rel="stylesheet" href="/webstore/resource/css/bootstrap.css">
- <script src="/webstore/resource/js/bootstrap.js"></script>
-</head>
-<body>
-	<section class="container">
-			<div class = "pull-right" style="padding-right:40px">
-			<c:url var="logoutUrl" value="/logout"/> 
-			<form action="${logoutUrl}" method="post"> 
-  				<input class ="btn btn-danger btn-mini pull-right"  type="submit" value="<spring:message code="addProduct.form.logout.submit"/>" />
-  				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-			</form>
-			</div>
-	</section>
+<script src="/webstore/resource/js/bootstrap.js"></script>
 	<section class="container">
 		<form:form modelAttribute="newProduct" class="form-horizontal" enctype="multipart/form-data">
 		<form:errors path="*" cssClass="alert alert-danger" element="div"/>
@@ -83,7 +67,6 @@
 					<div class="col-sm-10">
 						<form:radiobutton path="condition" value="Nowy"/> <spring:message code="addProduct.form.new.radiobutton"/>
 						<form:radiobutton path="condition" value="Używany"/> <spring:message code="addProduct.form.used.radiobutton"/>
-						<form:radiobutton path="condition" value="Odnowiony"/> <spring:message code="addProduct.form.renewed.radiobutton"/>
 					</div>
 				</div>
 				<div class="form-group">
@@ -95,5 +78,3 @@
 			 <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 		</form:form>
 	</section>
-</body>
-</html>

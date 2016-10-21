@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.packt.webstore.domain.Product;
+import com.packt.webstore.service.ProductService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("test-DispatcherServlet-context.xml")
@@ -26,6 +27,8 @@ public class ProductControllerTest {
 	@Autowired 
 	private WebApplicationContext wac;
 	private MockMvc mockMvc;
+	@Autowired
+	private ProductService productService;
 	
 	@Before
 	public void setup() {
@@ -39,8 +42,8 @@ public class ProductControllerTest {
 	
 	@Test
 	public void testGetProductById() throws Exception {
-		Product product = new Product("D1234", "Diablo 3", new BigDecimal(50));
-		this.mockMvc.perform(get("/products/product").param("id", "D1234"))
+		Product product = productService.getProductById("D1238");
+		this.mockMvc.perform(get("/products/product").param("id", "D1238"))
 		.andExpect(model().attributeExists("product"))
 		.andExpect(model().attribute("product", product));
 	}
