@@ -31,7 +31,7 @@
 			</ul>
 			<h3 class="text-muted"><spring:message code="baseLayout.webstore"/></h3>
 			<div style="padding-right:50px">
-			<a href="?language=pl">polski</a> | <a href="?language=en">english</a>
+			<tiles:insertAttribute name="language"/><br>
 			</div>
 		</div>
 		<div class="jumbotron">

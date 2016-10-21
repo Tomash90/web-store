@@ -1,0 +1,1 @@
+<a href="?language=pl">polski</a> | <a href="?language=en">english</a>

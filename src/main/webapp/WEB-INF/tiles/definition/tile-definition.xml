@@ -4,6 +4,7 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 	<definition name="baseLayout" template="/WEB-INF/tiles/template/baseLayout.jsp">
+		<put-attribute name="language" value=""/>
 		<put-attribute name="title" value="Przładowy tytuł" />
 		<put-attribute name="heading" value=""/>
 		<put-attribute name="tagline" value=""/>
@@ -19,6 +20,7 @@
 		<put-attribute name="content" value="/WEB-INF/views/login.jsp"/>
 	</definition>
 	<definition name="products" extends="baseLayout">
+		<put-attribute name="language" value="/WEB-INF/tiles/template/language.jsp"/>
 		<put-attribute name="title" value="Produkty" />
 		<put-attribute name="heading" value="Produkty"/>
 		<put-attribute name="tagline" value="Dostępne produkty w naszym sklepie"/>
@@ -30,24 +32,28 @@
 		<put-attribute name="content" value="/WEB-INF/views/product.jsp"/>
 	</definition>
 	<definition name="addProduct" extends="baseLayout">
+	<put-attribute name="language" value="/WEB-INF/tiles/template/language.jsp"/>
 		<put-attribute name="title" value="Dodaj Produkt" />
 		<put-attribute name="heading" value="Produkt"/>
 		<put-attribute name="tagline" value="Dodaj produkty"/>
 		<put-attribute name="content" value="/WEB-INF/views/addProduct.jsp"/>
 	</definition>
 	<definition name="cart" extends="baseLayout">
+		<put-attribute name="language" value="/WEB-INF/tiles/template/language.jsp"/>
 		<put-attribute name="title" value="Koszyk" />
 		<put-attribute name="heading" value="Koszyk"/>
 		<put-attribute name="tagline" value="Lista produktów w Twoim koszyku"/>
 		<put-attribute name="content" value="/WEB-INF/views/cart.jsp"/>
 	</definition>
 	<definition name="login" extends="baseLayout">
+		<put-attribute name="language" value="/WEB-INF/tiles/template/language.jsp"/>
 		<put-attribute name="title" value="Zaloguj się" />
 		<put-attribute name="heading" value="Zaloguj się"/>
 		<put-attribute name="tagline" value="Wprowadź nazwę użytkownika i hasło"/>
 		<put-attribute name="content" value="/WEB-INF/views/login.jsp"/>
 	</definition>
 	<definition name="registration" extends="baseLayout">
+		<put-attribute name="language" value="/WEB-INF/tiles/template/language.jsp"/>
 		<put-attribute name="title" value="Zarejestruj się" />
 		<put-attribute name="heading" value="Zarejestruj się"/>
 		<put-attribute name="tagline" value="Wprowadź email i hasło"/>
