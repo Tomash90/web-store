@@ -23,8 +23,12 @@
 		<put-attribute name="language" value="/WEB-INF/tiles/template/language.jsp"/>
 		<put-attribute name="title" value="Products" />
 		<put-attribute name="heading" value="Products"/>
-		<put-attribute name="tagline" value="Products available in our store"/>
+		<put-attribute name="tagline" value="Products available in store"/>
 		<put-attribute name="content" value="/WEB-INF/views/products.jsp"/>
+</definition>
+<definition name="productNotFound" extends="baseLayout">
+		<put-attribute name="title" value="Product not found" />
+		<put-attribute name="content" value="/WEB-INF/views/productNotFound.jsp"/>
 </definition>
 <definition name="login" extends="baseLayout">
 		<put-attribute name="language" value="/WEB-INF/tiles/template/language.jsp"/>
@@ -52,6 +56,11 @@
 		<put-attribute name="tagline" value="Products in your cart"/>
 		<put-attribute name="content" value="/WEB-INF/views/cart.jsp"/>
 </definition>
+<definition name="invalidPromoCode" extends="baseLayout">
+	<put-attribute name="title" value="Ivalid code" />
+	<put-attribute name="heading" value="Code"/>
+	<put-attribute name="content" value="/WEB-INF/views/invalidPromoCode.jsp"/>
+</definition>
 <definition name="collectCustomerInfo" extends="baseLayout">
 		<put-attribute name="title" value="Customer" />
 		<put-attribute name="heading" value="Customer Details"/>
@@ -66,5 +75,20 @@
 		<put-attribute name="title" value="Order Confirmation" />
 		<put-attribute name="heading" value="Order Confirmation" />
 		<put-attribute name="content" value="/WEB-INF/flows/checkout/orderConfirmation.jsp" />
+</definition>
+<definition name="checkOutCancelled" extends="baseLayout">
+		<put-attribute name="title" value="Order cancelled!" />
+		<put-attribute name="heading" value="Order cancelled!" />
+		<put-attribute name="content" value="/WEB-INF/flows/checkout/checkOutCancelled.jsp" />
+</definition>
+<definition name="invalidCartWarning" extends="baseLayout">
+		<put-attribute name="title" value="Your shopping cart is empty" />
+		<put-attribute name="heading" value="Your shopping cart is empty" />
+		<put-attribute name="content" value="/WEB-INF/flows/checkout/invalidCartWarning.jsp" />
+</definition>
+<definition name="thankCustomer" extends="baseLayout">
+		<put-attribute name="title" value="Thank you!" />
+		<put-attribute name="heading" value="Thank you for shopping at online store!" />
+		<put-attribute name="content" value="/WEB-INF/flows/checkout/thankCustomer.jsp" />
 </definition>
 </tiles-definitions>

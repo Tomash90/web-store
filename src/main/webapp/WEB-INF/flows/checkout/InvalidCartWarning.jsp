@@ -7,7 +7,7 @@
 		<div class="container">
 			<p>
 				<a href="<spring:url value="/products" />" class="btn btn-primary">
-					<span class="glyphicon-hand-left glyphicon"></span> Powrót do zakupów
+					<span class="glyphicon-hand-left glyphicon"></span> <spring:message code="checkOutCancelled.back"/>
 				</a>
 			</p>
 		</div>

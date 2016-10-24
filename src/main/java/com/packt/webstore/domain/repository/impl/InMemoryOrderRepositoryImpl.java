@@ -30,5 +30,4 @@ public class InMemoryOrderRepositoryImpl implements OrderRepository {
 	private synchronized long getNexOrderId() {
 		return nextOrderId++;
 	}
-
 }

@@ -60,7 +60,7 @@
 					<input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}"/>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<input type="submit" id="btnAdd" class="btn btn-primary" value="Utwórz" name="_eventId_customerInfoCollected"/>
+						<input type="submit" id="btnAdd" class="btn btn-primary" value="<spring:message code="collectCustomerInfo.button.create"/>" name="_eventId_customerInfoCollected"/>
 						<button id="btnCancel" class="btn btn-default" name="_eventId_cancel"><spring:message code="collectCustomerInfo.button.cancel"/></button>
 					</div>
 				</div>

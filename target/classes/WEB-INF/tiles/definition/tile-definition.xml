@@ -31,6 +31,10 @@
 		<put-attribute name="heading" value="Produkt"/>
 		<put-attribute name="content" value="/WEB-INF/views/product.jsp"/>
 	</definition>
+	<definition name="productNotFound" extends="baseLayout">
+		<put-attribute name="title" value="Brak produktu o wskazanym id" />
+		<put-attribute name="content" value="/WEB-INF/views/productNotFound.jsp"/>
+	</definition>
 	<definition name="addProduct" extends="baseLayout">
 	<put-attribute name="language" value="/WEB-INF/tiles/template/language.jsp"/>
 		<put-attribute name="title" value="Dodaj Produkt" />
@@ -58,6 +62,11 @@
 		<put-attribute name="heading" value="Zarejestruj się"/>
 		<put-attribute name="tagline" value="Wprowadź email i hasło"/>
 		<put-attribute name="content" value="/WEB-INF/views/registration.jsp"/>
+	</definition>
+	<definition name="invalidPromoCode" extends="baseLayout">
+		<put-attribute name="title" value="Błędny kod promocyjny" />
+		<put-attribute name="heading" value="Kod promocyjny"/>
+		<put-attribute name="content" value="/WEB-INF/views/invalidPromoCode.jsp"/>
 	</definition>
 	<definition name="collectCustomerInfo" extends="baseLayout">
 		<put-attribute name="title" value="Klient" />

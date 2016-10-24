@@ -30,6 +30,7 @@ public class OrderServiceImpl implements OrderService {
 			throw new IllegalArgumentException("Zbyt mała ilość towaru. Obecna liczba sztuk w magazynie: " + productById.getUnitsInStock());
 		}
 		productById.setUnitsInStock(productById.getUnitsInStock() - count);
+		productRepository.save(productById);
 	}
 
 	@Override
