@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Cart implements Serializable {
-
+	
 	private static final long serialVersionUID = -6522002126143720342L;
 	private String cartId;
 	private Map<String, CartItem> cartItems;

@@ -6,4 +6,4 @@
  <sec:authorize access="hasRole('ROLE_ADMIN')"><li><a href= "<spring:url value="/products/add" />" ><spring:message code="navigation.addProduct"/></a></li></sec:authorize>
  <li><a href= "<spring:url value="/products" />" ><spring:message code="navigation.home"/></a></li>
  <li><a href= "<spring:url value="/products/" />" ><spring:message code="navigation.products"/></a></li>
- <li><a href= "<spring:url value="/cart/" />" ><spring:message code="navigation.cart"/></a></li>
+ <li><a href= "<spring:url value="/cart/" />" ><spring:message code="navigation.cart"/><span class="badge"> ${sessionScope.cartSize}</span></a></li>

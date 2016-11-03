@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,6 +28,9 @@ public class UserController {
 	@Autowired
 	UserValidator userValidator;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	@RequestMapping(value="/registration", method=RequestMethod.POST)
 	public String addUser(HttpServletRequest request, @ModelAttribute("userDto") @Valid UserDTO userDto, BindingResult result) {
 		if(result.hasErrors()){
@@ -35,7 +39,7 @@ public class UserController {
 		else {
 			Users user = new Users();
 			user.setUsername(userDto.getUsername());
-			user.setPassword(userDto.getPassword());
+			user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 			user.setEnabled(true);
 			userService.save(user);
 			return "redirect:/login";

@@ -81,10 +81,10 @@
 		<put-attribute name="heading" value="Order cancelled!" />
 		<put-attribute name="content" value="/WEB-INF/flows/checkout/checkOutCancelled.jsp" />
 </definition>
-<definition name="invalidCartWarning" extends="baseLayout">
+<definition name="InvalidCartWarning" extends="baseLayout">
 		<put-attribute name="title" value="Your shopping cart is empty" />
 		<put-attribute name="heading" value="Your shopping cart is empty" />
-		<put-attribute name="content" value="/WEB-INF/flows/checkout/invalidCartWarning.jsp" />
+		<put-attribute name="content" value="/WEB-INF/flows/checkout/InvalidCartWarning.jsp" />
 </definition>
 <definition name="thankCustomer" extends="baseLayout">
 		<put-attribute name="title" value="Thank you!" />

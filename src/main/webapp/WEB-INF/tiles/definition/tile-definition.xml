@@ -78,10 +78,10 @@
 		<put-attribute name="heading" value="Dane do wysyłki"/>
 		<put-attribute name="content" value="/WEB-INF/flows/checkout/collectShippingDetail.jsp"/>
 	</definition>
-	<definition name="invalidCartWarning" extends="baseLayout">
+	<definition name="InvalidCartWarning" extends="baseLayout">
 		<put-attribute name="title" value="Błędny koszyk" />
 		<put-attribute name="heading" value="Błędny koszyk" />
-		<put-attribute name="content" value="/WEB-INF/flows/checkout/invalidCartWarning.jsp" />
+		<put-attribute name="content" value="/WEB-INF/flows/checkout/InvalidCartWarning.jsp" />
 	</definition>
 	<definition name="orderConfirmation" extends="baseLayout">
 		<put-attribute name="title" value="Potwierdzenie zamówienia" />

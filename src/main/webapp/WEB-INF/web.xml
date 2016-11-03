@@ -17,7 +17,6 @@
         <param-value>true</param-value>
         </init-param>
     </filter> 
-
     <filter-mapping>
         <filter-name>encoding-filter</filter-name>
         <url-pattern>/*</url-pattern>
@@ -35,6 +34,9 @@
     	<servlet-name>DispatcherServlet</servlet-name>
     	<url-pattern>/</url-pattern>
     </servlet-mapping>
+    <session-config>
+    	<session-timeout>10</session-timeout>
+    </session-config>
     <context-param>
     	<param-name>contextConfigLocation</param-name>
     	<param-value>/WEB-INF/spring/webcontext/security-context.xml</param-value>
